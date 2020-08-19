@@ -1,0 +1,3 @@
+isreadyok
+ucinewgame
+setoption name Hash 32

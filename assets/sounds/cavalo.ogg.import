@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/cavalo.ogg-c1564b0aac1f058f381b8674627d12f5.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/cavalo.ogg"
+dest_files=[ "res://.import/cavalo.ogg-c1564b0aac1f058f381b8674627d12f5.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

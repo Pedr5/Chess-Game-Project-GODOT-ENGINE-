@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/new_poss.png" type="Texture" id=1]
+
+[node name="Poss" type="Node2D"]
+z_index = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 64.0
+margin_bottom = 64.0
+
+[node name="Sprite" type="Sprite" parent="CenterContainer"]
+modulate = Color( 0.0823529, 0.623529, 0.486275, 1 )
+position = Vector2( 32, 32 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
