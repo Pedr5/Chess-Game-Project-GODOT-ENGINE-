@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://ButtonTheme.tres" type="Theme" id=2]
@@ -17,10 +17,9 @@
 [ext_resource path="res://Scenes/PieceStyles.gd" type="Script" id=15]
 [ext_resource path="res://assets/pieces/cburnett/white/kin.png" type="Texture" id=16]
 [ext_resource path="res://assets/fonts/Poppins-Regular.ttf" type="DynamicFontData" id=17]
-[ext_resource path="res://assets/sounds/untitled.wav" type="AudioStream" id=18]
-[ext_resource path="res://assets/sounds/move.wav" type="AudioStream" id=19]
-[ext_resource path="res://Scenes/infoBar1.gd" type="Script" id=20]
-[ext_resource path="res://icon.png" type="Texture" id=21]
+[ext_resource path="res://assets/sounds/move.wav" type="AudioStream" id=18]
+[ext_resource path="res://Scenes/infoBar1.gd" type="Script" id=19]
+[ext_resource path="res://icon.png" type="Texture" id=20]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
@@ -1746,13 +1745,12 @@ text = "Stalemate"
 align = 1
 
 [node name="click" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 18 )
 volume_db = -80.0
 pitch_scale = 2.5
 mix_target = 2
 
 [node name="audio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 19 )
+stream = ExtResource( 18 )
 pitch_scale = 1.5
 mix_target = 2
 
@@ -1781,7 +1779,7 @@ text = "LOADING"
 
 [node name="infoBar2" type="Node2D" parent="."]
 position = Vector2( 0, -100 )
-script = ExtResource( 20 )
+script = ExtResource( 19 )
 
 [node name="CenterContainer" type="CenterContainer" parent="infoBar2"]
 margin_left = -6.0
@@ -1817,7 +1815,7 @@ visible = false
 modulate = Color( 1, 0, 0, 1 )
 margin_right = 64.0
 margin_bottom = 64.0
-texture = ExtResource( 21 )
+texture = ExtResource( 20 )
 
 [node name="Name" type="Label" parent="infoBar2/CenterContainer/HBoxContainer"]
 margin_right = 79.0
@@ -1836,7 +1834,7 @@ columns = 8
 
 [node name="infoBar1" type="Node2D" parent="."]
 position = Vector2( 0, 550 )
-script = ExtResource( 20 )
+script = ExtResource( 19 )
 
 [node name="CenterContainer" type="CenterContainer" parent="infoBar1"]
 margin_left = -6.0
@@ -1871,7 +1869,7 @@ visible = false
 modulate = Color( 1, 0, 0, 1 )
 margin_right = 64.0
 margin_bottom = 64.0
-texture = ExtResource( 21 )
+texture = ExtResource( 20 )
 
 [node name="Name" type="Label" parent="infoBar1/CenterContainer/HBoxContainer"]
 margin_right = 76.0
@@ -1906,9 +1904,9 @@ columns = 8
 [connection signal="change_color" from="PieceStyle/CenterContainer/VBoxContainer/Colors/tileColor" to="infoBar2" method="_on_tileColor_change_color"]
 [connection signal="change_color" from="PieceStyle/CenterContainer/VBoxContainer/Colors/tileColor" to="infoBar1" method="_on_tileColor_change_color"]
 [connection signal="pressed" from="PieceStyle/CenterContainer/VBoxContainer/Colors/Next" to="PieceStyle/CenterContainer/VBoxContainer/Colors" method="_on_Next_pressed"]
+[connection signal="style_changed" from="PieceStyle/CenterContainer/VBoxContainer/PieceStyles" to="." method="_on_PieceStyles_style_changed"]
 [connection signal="style_changed" from="PieceStyle/CenterContainer/VBoxContainer/PieceStyles" to="infoBar2" method="_on_PieceStyles_style_changed"]
 [connection signal="style_changed" from="PieceStyle/CenterContainer/VBoxContainer/PieceStyles" to="infoBar1" method="_on_PieceStyles_style_changed"]
-[connection signal="style_changed" from="PieceStyle/CenterContainer/VBoxContainer/PieceStyles" to="." method="_on_PieceStyles_style_changed"]
 [connection signal="pressed" from="PieceStyle/CenterContainer/VBoxContainer/PieceStyles/Previous" to="PieceStyle/CenterContainer/VBoxContainer/PieceStyles" method="_on_Previous_pressed"]
 [connection signal="pressed" from="PieceStyle/CenterContainer/VBoxContainer/PieceStyles/Next" to="PieceStyle/CenterContainer/VBoxContainer/PieceStyles" method="_on_Next_pressed"]
 [connection signal="pressed" from="PieceStyle/CenterContainer/VBoxContainer/Buttons/Back" to="." method="_on_Back_pressed"]
