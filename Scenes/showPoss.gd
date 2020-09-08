@@ -1,24 +1,24 @@
 extends Button
 
 onready var table = load("res://invi.tres")
+var isPress
 func _ready():
-	$test.pressed = FileConfig.showPoss
-	_on_showPoss_toggled($test.pressed)
+	isPress = FileConfig.showPoss
+	_on_showPoss_toggled(isPress)
 	pass
 
 func _on_showPoss_toggled(button_pressed):
-	if button_pressed:
+	$test.pressed = isPress
+	if isPress:
 		$test.rect_position.x = 48
-		$test.text = "ON"
-		$test.pressed = true
-		table.tile_set_modulate(0,Color("2fb7d1"))
-		table.tile_set_modulate(1,Color("f10000"))
+		table.tile_set_modulate(0,Color("7b000000"))
+		table.tile_set_modulate(1,Color("5eff0000"))
+		isPress = false
 	else:
 		$test.rect_position.x = -8
-		$test.text = "OFF"
-		$test.pressed = false
 		table.tile_set_modulate(0,Color(0))
 		table.tile_set_modulate(1,Color(0))
-	FileConfig.showPoss = button_pressed
+		isPress = true
+	FileConfig.showPoss = $test.pressed
 	FileConfig.saveConfig()
 	pass

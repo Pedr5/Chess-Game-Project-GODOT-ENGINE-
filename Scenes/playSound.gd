@@ -1,20 +1,21 @@
 extends Button
+var isPress
 func _ready():
-	$test.pressed = FileConfig.playSound
-	_on_playSound_toggled($test.pressed)
+	isPress = FileConfig.playSound
+	_on_playSound_toggled(isPress)
 	pass
 
 func _on_playSound_toggled(button_pressed):
-	if button_pressed:
+	$test.pressed = isPress
+	if isPress:
 		$test.rect_position.x = 48
-		$test.text = "ON"
-		$test.pressed = true
+		isPress = false
 		get_tree().current_scene.get_node("audio").volume_db = 0
 	else:
 		$test.rect_position.x = -8
-		$test.text = "OFF"
-		$test.pressed = false
+
+		isPress = true
 		get_tree().current_scene.get_node("audio").volume_db = -80
-	FileConfig.playSound = button_pressed
+	FileConfig.playSound = $test.pressed
 	FileConfig.saveConfig()
 	pass

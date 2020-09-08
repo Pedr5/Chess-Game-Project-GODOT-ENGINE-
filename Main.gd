@@ -18,11 +18,10 @@ func _ready():
 		isMobile = true
 	else:
 		isMobile = false
-	print(OS.get_name())
 	$Menu/CenterContainer/VBoxContainer/Log.text += "Plataform: " + OS.get_name() + "\n"
 	$Menu/CenterContainer/VBoxContainer/Log.text += "File Loading Status(0 = OK): " + String(FileConfig.fileStats)
 func Start():
-	Global.gamemode = MULTIPLAYER
+	Global.gamemode = LOCAL
 	get_node("debug").clear()
 	if gameStarted:
 		Global.pgn = ""
@@ -64,7 +63,6 @@ func _input(event):
 		#Global.pgn = "g2g4 d7d6 g4g5 e7e5 f2f4 b8c6 d2d3 c6d4 e2e3 d4c6 e3e4 d6d5 f4f5 d8d6 g5g6 f7g6 f5f6 g7f6 e4d5 c6d4 c1d2 d6d5 b1c3 d5h1 d2e3 h1h2 d1e2 d4c2 e1d1 h2e2 d1e2 c2a1 g1f3 a1c2 e2d2 c8g4 d2c2 g4f3 e3c5 e8f7 c5a3 f8a3 b2a3 g8h6 d3d4 e5d4 c3e2 c7c5 c2d3 h6f5 d3d2 b7b5 d2e1 f3d5 e1f2 c5c4 f2e1 h7h5 e1f2 d4d3 f2e1 d3e2 e1d2 e2f1q"
 		Global.Turn = "Player2"
 		stockfish()
-		print("CUUUUUU")
 	if Global.Turn != null && get_node("dummy").visible == true:
 		if event is InputEventScreenDrag && get_node(Global.Turn).pressed == true:
 			event.position = get_node("Camera2D").get_global_mouse_position()
@@ -83,15 +81,21 @@ func blackPersp():
 func _process(delta):
 	pass
 func autoPlay():
-	var mypgn = "d7d5 d2d3 e7e6 g1f3 d5e4 d3e4 d8d7 g2g3 b8c6 b1c3 d7d1 e1d1 g8f6 c1e3 c8d7 c3e2 f6e4 c2c3 h7h6 d1c2 a7a5 a1d1 a8d8 c2b1 a5a4 a2a3 f8d6 f1g2 e8g8 h2h4 c6e7 e2d4 c7c5 d4c2 d7c6 e3f4 d6f4 d1d8 f8d8 g3f4 d8d3 b1c1 b7b5 h1d1 c5c4 c2e1 d3d1 c1d1 e7f5 d1c2 e4f2 f3d4 f5e3 c2d2 e3g2 d4c6 g2f4 d2e3 f4d3 e1d3 c4d3 e3f2 h6h5 f2e3 f7f6 e3d3 g8f7 c6d4 e6e5 d4f3 f7e7 f3d2 e7d6 d2e4 d6e7 e4c5 f6f5 d3e3 e7f6 b2b3 a4b3 c5b3 f6e7 b3d2 e7e6 c3c4 b5c4 d2c4 e5e4 a3a4 g7g6 a4a5 e6d7 c4e5 d7e6 e5g6 e6f7 g6f4 f7e7 f4h5 e7e6 h5f4 e6d7 h4h5 d7c8 h5h6 c8b7 h6h7 b7a8 f4d5 a8a7 e3f4 a7b8 h7h8q "
+	var mypgn = "d7d5 d2d3 e7e6 g1f3 d5e4 d3e4 d8d7 g2g3 b8c6 b1c3 d7d1 e1d1 g8f6 c1e3 c8d7 c3e2 f6e4 c2c3 h7h6 d1c2 a7a5 a1d1 a8d8 c2b1 a5a4 a2a3 f8d6 f1g2 e8g8 h2h4 c6e7 e2d4 c7c5 d4c2 d7c6 e3f4 d6f4 d1d8 f8d8 g3f4 d8d3 b1c1 b7b5 h1d1 c5c4 c2e1 d3d1 c1d1 e7f5 d1c2 e4f2 f3d4 f5e3 c2d2 e3g2 d4c6 g2f4 d2e3 f4d3 e1d3 c4d3 e3f2 h6h5 f2e3 f7f6 e3d3 g8f7 c6d4 e6e5 d4f3 f7e7 f3d2 e7d6 d2e4 d6e7 e4c5 f6f5 d3e3 e7f6 b2b3 a4b3 c5b3 f6e7 b3d2 e7e6 c3c4 b5c4 d2c4 e5e4 a3a4 g7g6 a4a5 e6d7 c4e5 d7e6 e5g6 e6f7 g6f4 f7e7 f4h5 e7e6 h5f4 e6d7 h4h5 d7c8 h5h6 c8b7 h6h7 b7a8 f4d5 a8a7 e3f4 a7b8 h7h8q"
 	sendMoves(mypgn.substr(posi,posi+4))
 	posi += 5
 	pass
 func stockfish():
+	#This function initializes stockfish engine. Not directly, through a C++ program so it can receive inputs from a file.
+	#and reads its output from the log file.
+	#NOT IMPLEMENTED IN THE GAME YET
 	if Global.Turn == "Player2" && Global.gamemode == SINGLE_PLAYER:
 		var output = ""
-		OS.execute("C:/Users/Pedro/Documents/Stockfish/EngineTeste/bin/release/EngineTeste.exe",[],true)
-		var err = myFile.open("C://Users/Pedro/Documents/Pedro Chess/log.txt",File.READ)
+		print("aaaa??")
+	
+		OS.execute("cmd.exe",[],true)
+		return
+		var err = myFile.open("C:/Users/Pedro/Documents/Stockfish/log.txt",File.READ)
 		if err != 0:
 			print(err)
 		while output.find("bestmove") == -1:
@@ -135,7 +139,7 @@ func sendMoves(move):
 		player.get_node("Promotion/PromotionMenu").selected = "bishop"
 	print("\nCoordenadas traduzidas: ",pcoord, fcoord, "\n")
 	player.pName = player.getPiece(pcoord.x,pcoord.y)
-
+	print("move ends with: ", move.ends_with("q"))
 	#if Global.Turn == "Player2":
 	player.pressed = true
 	player.myTurn = true
@@ -160,32 +164,25 @@ func checkmate(stale = false):
 
 func _on_Start_pressed():
 	play_click()
-	Start()
 	var tween = get_node("Tween")
 	var overlay = $overlay
 	overlay.modulate = Color(1,1,1,1)
 	tween.interpolate_property(camera, "position",
-	camera.position, Vector2(256,camera.position.y), 1,
-	Tween.TRANS_QUAD, Tween.EASE_OUT)
+	camera.position, Vector2(256,camera.position.y), 0.1,
+	Tween.TRANS_QUAD, Tween.TRANS_LINEAR)
 	tween.start()
-	tween.interpolate_property($Camera2D/cmr, "zoom",Vector2(1,1), Vector2(0.8,0.8), 0.5,Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-	tween.start()
+#	tween.interpolate_property($Camera2D/cmr, "zoom",Vector2(1,1), Vector2(0.8,0.8), 0.5,Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+#	tween.start()
 	yield(tween, "tween_completed")
+	yield(get_tree().create_timer(0.5),"timeout")
+	Start()
+	continueButton.visible = true
 	yield(get_tree().create_timer(1),"timeout")
 	tween.interpolate_property(overlay, "modulate",Color(1,1,1,1), Color(1,1,1,0), 0.5,Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start()
 	yield(get_tree().create_timer(1),"timeout")
 	yield(tween, "tween_completed")
-	continueButton.visible = true
 	
-#	if pBlack && Global.gamemode == SINGLE_PLAYER:
-#		var err = myFile.open("C:/xp/input2.txt",File.WRITE)
-#		if err != 0:
-#			print("OPEN FILE ERROR: ",err)
-#		myFile.store_string("isready\n" + "ucinewgame\n"+ "setoption name Debug Log File value log.txt\n"+ "setoption name UCI_LimitStrength value true\n" + "position startpos moves\n" + "go movetime 1000\n")
-#		myFile.close()
-#		stockfish()
-
 func _on_playingBlack_toggled(button_pressed):
 	play_click()
 	pBlack = button_pressed
@@ -200,7 +197,7 @@ func _on_Settings_pressed():
 	var tween = get_node("Tween")
 	var settings = $Settings
 	tween.interpolate_property(settings, "rect_position",
-	settings.rect_position, Vector2(-820,settings.rect_position.y), 0.25,
+	settings.rect_position, Vector2(-820,settings.rect_position.y), 0.1,
 	Tween.TRANS_QUAD, Tween.EASE_OUT)
 	tween.start()
 	yield(tween, "tween_completed")
@@ -210,30 +207,33 @@ func _on_Settings_pressed():
 
 func _on_Back_pressed():
 	play_click()
+	print(currentScreen)
 	var tween = get_node("Tween")
 	var settings = $Settings
 	if currentScreen == SET:
+		currentScreen = MAIN
 		tween.interpolate_property(settings, "rect_position",
-		settings.rect_position, Vector2(-1540,settings.rect_position.y), 0.25,
+		settings.rect_position, Vector2(-1540,settings.rect_position.y), 0.1,
 		Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
 		tween.start()
-		currentScreen = MAIN
+		
 	elif currentScreen == SET2:
+		currentScreen = SET
 		FileConfig.saveConfig()
 		tween.interpolate_property($PieceStyle, "rect_position",
-		$PieceStyle.rect_position, Vector2(-2260,$PieceStyle.rect_position.y), 0.25,
+		$PieceStyle.rect_position, Vector2(-2260,$PieceStyle.rect_position.y), 0.1,
 		Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
 		tween.start()
-		currentScreen = SET
+		
 	elif currentScreen == GAME:
+		currentScreen = MAIN
 		tween.interpolate_property(camera, "position",
-		camera.position, Vector2(-450,camera.position.y), 0.25,
+		camera.position, Vector2(-450,camera.position.y), 0.1,
 		Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
 		tween.start()
-		tween.interpolate_property($Camera2D/cmr, "zoom",Vector2(0.8,0.8),Vector2(1,1) , 0.5,Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-		tween.start()
+#		tween.interpolate_property($Camera2D/cmr, "zoom",Vector2(0.8,0.8),Vector2(1,1) , 0.5,Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+#		tween.start()
 		yield(get_tree().create_timer(1),"timeout")
-		currentScreen = MAIN
 	yield(tween, "tween_completed")
 #	tween.interpolate_property(camera, "zoom",
 #	camera.zoom, Vector2(1,1), 1,
@@ -245,10 +245,10 @@ func _on_Back_pressed():
 func _on_Continue_pressed():
 	play_click()
 	var tween = get_node("Tween")
-	tween.interpolate_property($Camera2D/cmr, "zoom",Vector2(1,1), Vector2(0.8,0.8), 0.5,Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-	tween.start()
+#	tween.interpolate_property($Camera2D/cmr, "zoom",Vector2(1,1), Vector2(0.8,0.8), 0.5,Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+#	tween.start()
 	tween.interpolate_property(camera, "position",
-	camera.position, Vector2(256,camera.position.y), 0.5,
+	camera.position, Vector2(256,camera.position.y), 0.1,
 	Tween.TRANS_QUAD, Tween.EASE_OUT)
 	tween.start()
 #	tween.interpolate_property(camera, "zoom",
@@ -278,7 +278,7 @@ func _on_Board_Settings_pressed():
 	var tween = get_node("Tween")
 	var settings = $PieceStyle
 	tween.interpolate_property(settings, "rect_position",
-	settings.rect_position, Vector2(-820,settings.rect_position.y), 0.25,
+	settings.rect_position, Vector2(-820,settings.rect_position.y), 0.1,
 	Tween.TRANS_QUAD, Tween.EASE_OUT)
 	tween.start()
 	yield(tween, "tween_completed")

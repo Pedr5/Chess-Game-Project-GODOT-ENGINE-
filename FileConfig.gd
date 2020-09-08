@@ -14,8 +14,8 @@ func _ready():
 	if OS.get_name() == "Android":
 		path = "user://config.cfg"
 	else:
-		path = "res://Scenes//config.cfg"
-	fileStats = configFile.load(path)
+		path = "user://config.cfg"
+	
 	loadConfig()
 
 func fTime():
@@ -33,10 +33,13 @@ func saveConfig():
 	configFile.set_value("board","showPastMove",showPastMove)
 	configFile.set_value("board","showPoss",showPoss)
 	configFile.set_value("board","playSound",playSound)
-	configFile.save(path)
+	var saveState = configFile.save(path)
+	print("Save state: ", saveState," path: ",path)
 	pass
 
 func loadConfig():
+	fileStats = configFile.load(path)
+	print("Load State: ", fileStats)
 	colorIndex = configFile.get_value("board","color",0)
 	pieceStyle = configFile.get_value("board","style","cburnett")
 	showPastMove = configFile.get_value("board","showPastMove",true)

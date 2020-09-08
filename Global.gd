@@ -59,9 +59,13 @@ func justMoved(popo):
 	if popo == "Player":
 		Turn = "Player2"
 		currentPiece = null
+		get_tree().current_scene.get_node("infoBar2").setTurn(true)
+		get_tree().current_scene.get_node("infoBar1").setTurn(false)
 	elif popo =="Player2":
 		Turn = "Player"
 		currentPiece = null
+		get_tree().current_scene.get_node("infoBar1").setTurn(true)
+		get_tree().current_scene.get_node("infoBar2").setTurn(false)
 	else:
 		Turn = null
 	pass
