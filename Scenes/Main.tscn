@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://ButtonTheme.tres" type="Theme" id=2]
@@ -81,16 +81,6 @@ font_data = ExtResource( 4 )
 
 [sub_resource type="StyleBoxFlat" id=9]
 bg_color = Color( 0.109804, 0.109804, 0.109804, 1 )
-border_color = Color( 0, 0, 0, 0.231373 )
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
-corner_detail = 16
-shadow_color = Color( 0.235294, 0.235294, 0.235294, 0.152941 )
-
-[sub_resource type="StyleBoxFlat" id=10]
-bg_color = Color( 0.247059, 0.247059, 0.247059, 1 )
 border_color = Color( 1, 1, 1, 0.231373 )
 corner_radius_top_left = 30
 corner_radius_top_right = 30
@@ -99,8 +89,18 @@ corner_radius_bottom_left = 30
 corner_detail = 16
 shadow_color = Color( 0.235294, 0.235294, 0.235294, 0.152941 )
 
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.109804, 0.109804, 0.109804, 1 )
+border_color = Color( 0, 0, 0, 0.231373 )
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 16
+shadow_color = Color( 0.235294, 0.235294, 0.235294, 0.152941 )
+
 [sub_resource type="StyleBoxFlat" id=11]
-bg_color = Color( 0.772549, 0.772549, 0.772549, 1 )
+bg_color = Color( 0.0588235, 0.172549, 0.0862745, 1 )
 corner_radius_top_left = 50
 corner_radius_top_right = 50
 corner_radius_bottom_right = 50
@@ -109,7 +109,7 @@ corner_detail = 16
 shadow_color = Color( 1, 1, 1, 0.270588 )
 
 [sub_resource type="StyleBoxFlat" id=12]
-bg_color = Color( 0.772549, 0.772549, 0.772549, 1 )
+bg_color = Color( 0.172549, 0.0588235, 0.0588235, 1 )
 border_color = Color( 0, 0, 0, 0.231373 )
 corner_radius_top_left = 30
 corner_radius_top_right = 30
@@ -122,6 +122,8 @@ shadow_color = Color( 0.835294, 0, 0, 0.443137 )
 size = 24
 use_filter = true
 font_data = ExtResource( 4 )
+
+[sub_resource type="Theme" id=18]
 
 [sub_resource type="DynamicFont" id=14]
 size = 43
@@ -958,9 +960,8 @@ margin_bottom = 1280.0
 color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
 
 [node name="CenterContainer" type="CenterContainer" parent="Settings"]
-margin_top = -0.950012
 margin_right = 720.0
-margin_bottom = 1279.05
+margin_bottom = 1280.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Settings/CenterContainer"]
 margin_left = 103.0
@@ -1064,8 +1065,8 @@ focus_mode = 0
 size_flags_horizontal = 8
 size_flags_vertical = 0
 custom_styles/hover = SubResource( 9 )
-custom_styles/pressed = SubResource( 10 )
-custom_styles/normal = SubResource( 9 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/normal = SubResource( 10 )
 toggle_mode = true
 action_mode = 0
 enabled_focus_mode = 0
@@ -1084,9 +1085,9 @@ text = "SHOW PAST MOVES"
 align = 1
 
 [node name="test" type="Button" parent="Settings/CenterContainer/VBoxContainer/Buttons/showMovesBtn"]
-margin_left = 62.0
+margin_left = 4.0
 margin_top = 2.0
-margin_right = 97.0
+margin_right = 39.0
 margin_bottom = 37.0
 rect_min_size = Vector2( 32, 32 )
 rect_pivot_offset = Vector2( 30, 30 )
@@ -1117,9 +1118,10 @@ rect_min_size = Vector2( 100, 40 )
 focus_mode = 0
 size_flags_horizontal = 8
 size_flags_vertical = 0
-custom_styles/hover = SubResource( 9 )
-custom_styles/pressed = SubResource( 10 )
-custom_styles/normal = SubResource( 9 )
+theme = SubResource( 18 )
+custom_styles/hover = SubResource( 10 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/normal = SubResource( 10 )
 toggle_mode = true
 action_mode = 0
 enabled_focus_mode = 0
@@ -1138,9 +1140,9 @@ text = "SHOW POSSIBLE MOVES"
 align = 1
 
 [node name="test" type="Button" parent="Settings/CenterContainer/VBoxContainer/Buttons/showPoss"]
-margin_left = 62.0
+margin_left = 4.0
 margin_top = 2.0
-margin_right = 97.0
+margin_right = 39.0
 margin_bottom = 37.0
 rect_min_size = Vector2( 32, 32 )
 rect_pivot_offset = Vector2( 30, 30 )
@@ -1171,9 +1173,9 @@ rect_min_size = Vector2( 100, 40 )
 focus_mode = 0
 size_flags_horizontal = 8
 size_flags_vertical = 0
-custom_styles/hover = SubResource( 9 )
-custom_styles/pressed = SubResource( 10 )
-custom_styles/normal = SubResource( 9 )
+custom_styles/hover = SubResource( 10 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/normal = SubResource( 10 )
 toggle_mode = true
 action_mode = 0
 enabled_focus_mode = 0
@@ -1192,9 +1194,9 @@ text = "PLAY MOVE SOUND"
 align = 1
 
 [node name="test" type="Button" parent="Settings/CenterContainer/VBoxContainer/Buttons/playSound"]
-margin_left = 62.0
+margin_left = 4.0
 margin_top = 2.0
-margin_right = 97.0
+margin_right = 39.0
 margin_bottom = 37.0
 rect_min_size = Vector2( 32, 32 )
 rect_pivot_offset = Vector2( 30, 30 )
@@ -1717,8 +1719,7 @@ mouse_filter = 2
 color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
 
 [node name="CenterContainer" type="CenterContainer" parent="overlay/overlay"]
-margin_left = 4.31694
-margin_right = 724.317
+margin_right = 720.0
 margin_bottom = 1280.0
 mouse_filter = 2
 
@@ -1855,12 +1856,12 @@ columns = 8
 [connection signal="visibility_changed" from="PieceStyle/CenterContainer/VBoxContainer/StyleBoard/PreviewBoard" to="PieceStyle/CenterContainer/VBoxContainer/StyleBoard/PreviewBoard" method="_on_PreviewBoard_visibility_changed"]
 [connection signal="pressed" from="PieceStyle/CenterContainer/VBoxContainer/Colors/Previous" to="PieceStyle/CenterContainer/VBoxContainer/Colors" method="_on_Previous_pressed"]
 [connection signal="change_color" from="PieceStyle/CenterContainer/VBoxContainer/Colors/tileColor" to="." method="_on_tileColor_change_color"]
-[connection signal="change_color" from="PieceStyle/CenterContainer/VBoxContainer/Colors/tileColor" to="infoBar2" method="_on_tileColor_change_color"]
 [connection signal="change_color" from="PieceStyle/CenterContainer/VBoxContainer/Colors/tileColor" to="infoBar1" method="_on_tileColor_change_color"]
+[connection signal="change_color" from="PieceStyle/CenterContainer/VBoxContainer/Colors/tileColor" to="infoBar2" method="_on_tileColor_change_color"]
 [connection signal="pressed" from="PieceStyle/CenterContainer/VBoxContainer/Colors/Next" to="PieceStyle/CenterContainer/VBoxContainer/Colors" method="_on_Next_pressed"]
 [connection signal="style_changed" from="PieceStyle/CenterContainer/VBoxContainer/PieceStyles" to="." method="_on_PieceStyles_style_changed"]
-[connection signal="style_changed" from="PieceStyle/CenterContainer/VBoxContainer/PieceStyles" to="infoBar2" method="_on_PieceStyles_style_changed"]
 [connection signal="style_changed" from="PieceStyle/CenterContainer/VBoxContainer/PieceStyles" to="infoBar1" method="_on_PieceStyles_style_changed"]
+[connection signal="style_changed" from="PieceStyle/CenterContainer/VBoxContainer/PieceStyles" to="infoBar2" method="_on_PieceStyles_style_changed"]
 [connection signal="pressed" from="PieceStyle/CenterContainer/VBoxContainer/PieceStyles/Previous" to="PieceStyle/CenterContainer/VBoxContainer/PieceStyles" method="_on_Previous_pressed"]
 [connection signal="pressed" from="PieceStyle/CenterContainer/VBoxContainer/PieceStyles/Next" to="PieceStyle/CenterContainer/VBoxContainer/PieceStyles" method="_on_Next_pressed"]
 [connection signal="pressed" from="PieceStyle/CenterContainer/VBoxContainer/Buttons/Back" to="." method="_on_Back_pressed"]
