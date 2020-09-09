@@ -418,6 +418,14 @@ func isMate(noCheck = false):
 	pass
 
 func promote(pawn,new_pos):
+	print("position: ", piece.position)
+	$Promotion.position = piece.global_position
+	if Global.gamemode == LOCAL:
+		if !playerId == 1:
+			$Promotion.position.y -= 320
+		else:
+			$Promotion.position.y += 64
+	Global.isPromoting = true
 	var selected = null
 	myTurn = false
 	if playerId == 1:
@@ -427,6 +435,7 @@ func promote(pawn,new_pos):
 	var color
 	if Global.gamemode == LOCAL:
 		menu.visible = true
+
 	else:
 		if playerId == 1:
 			menu.visible = true
@@ -443,13 +452,19 @@ func promote(pawn,new_pos):
 	print("SAINDO")
 	if playerId == 1 || Global.gamemode == LOCAL:
 		yield()
+		
 	isPromoted = menu.selected.left(1)
 	piecesPos.erase(pawn)
 	pawn = menu.selected + pawn
 	piece.name = pawn
 	piecesPos[pawn] = new_pos
+	if playerId == 1:
+		 Global.piecesPos = piecesPos 
+	else:
+		Global.piecesPos2 = piecesPos
 	piece.get_node("Button/Icon").texture = load("res://assets/pieces/"+ Global.style+"/" + color + "/" +  menu.selected.left(3) + ".png")
 	menu.selected = null
+	Global.isPromoting = false
 	pass
 
 func check(x,y, isPawn = false, checking = false):
@@ -521,9 +536,12 @@ func check(x,y, isPawn = false, checking = false):
 
 func _input(event):
 	var sendInput = false
+	if $Promotion/PromotionMenu.visible:
+		pass
 	if event is InputEventScreenTouch && myTurn:
+			print(event.position)
 			if !event.is_pressed():
-					return
+				return
 			if Global.gamemode == MULTIPLAYER && playerId != 1:
 				print("haha")
 				return

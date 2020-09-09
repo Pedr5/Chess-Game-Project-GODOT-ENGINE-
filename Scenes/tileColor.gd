@@ -15,6 +15,7 @@ func setColor(lcolor, dcolor):
 	board.tile_set_modulate(0,Color(dcolor))
 	board.tile_set_modulate(1,Color(lcolor))
 	emit_signal("change_color",Color(dcolor))
+	
 	pass
 
 func getColors():

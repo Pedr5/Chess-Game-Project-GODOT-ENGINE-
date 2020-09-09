@@ -80,7 +80,7 @@ use_filter = true
 font_data = ExtResource( 4 )
 
 [sub_resource type="StyleBoxFlat" id=9]
-bg_color = Color( 0, 0, 0, 1 )
+bg_color = Color( 0.109804, 0.109804, 0.109804, 1 )
 border_color = Color( 0, 0, 0, 0.231373 )
 corner_radius_top_left = 30
 corner_radius_top_right = 30
@@ -88,31 +88,28 @@ corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 corner_detail = 16
 shadow_color = Color( 0.235294, 0.235294, 0.235294, 0.152941 )
-shadow_size = 4
 
 [sub_resource type="StyleBoxFlat" id=10]
-bg_color = Color( 0, 0, 0, 1 )
-border_color = Color( 0, 0, 0, 0.231373 )
+bg_color = Color( 0.247059, 0.247059, 0.247059, 1 )
+border_color = Color( 1, 1, 1, 0.231373 )
 corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 corner_detail = 16
 shadow_color = Color( 0.235294, 0.235294, 0.235294, 0.152941 )
-shadow_size = 4
 
 [sub_resource type="StyleBoxFlat" id=11]
-bg_color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
+bg_color = Color( 0.772549, 0.772549, 0.772549, 1 )
 corner_radius_top_left = 50
 corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 corner_detail = 16
-shadow_color = Color( 0, 1, 0.647059, 0.270588 )
-shadow_size = 4
+shadow_color = Color( 1, 1, 1, 0.270588 )
 
 [sub_resource type="StyleBoxFlat" id=12]
-bg_color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
+bg_color = Color( 0.772549, 0.772549, 0.772549, 1 )
 border_color = Color( 0, 0, 0, 0.231373 )
 corner_radius_top_left = 30
 corner_radius_top_right = 30
@@ -120,7 +117,6 @@ corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 corner_detail = 16
 shadow_color = Color( 0.835294, 0, 0, 0.443137 )
-shadow_size = 4
 
 [sub_resource type="DynamicFont" id=13]
 size = 24
@@ -467,6 +463,7 @@ z_index = 6
 offset = Vector2( 0, 5 )
 
 [node name="Menu" type="Control" parent="."]
+editor/display_folded = true
 margin_left = -820.0
 margin_top = -340.0
 margin_right = -100.0
@@ -961,8 +958,9 @@ margin_bottom = 1280.0
 color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
 
 [node name="CenterContainer" type="CenterContainer" parent="Settings"]
+margin_top = -0.950012
 margin_right = 720.0
-margin_bottom = 1280.0
+margin_bottom = 1279.05
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Settings/CenterContainer"]
 margin_left = 103.0
@@ -993,6 +991,7 @@ rect_pivot_offset = Vector2( 180, 0 )
 custom_constants/separation = 50
 
 [node name="Board_Settings" type="Button" parent="Settings/CenterContainer/VBoxContainer/Buttons"]
+editor/display_folded = true
 margin_left = 7.0
 margin_right = 507.0
 margin_bottom = 60.0
@@ -1085,17 +1084,17 @@ text = "SHOW PAST MOVES"
 align = 1
 
 [node name="test" type="Button" parent="Settings/CenterContainer/VBoxContainer/Buttons/showMovesBtn"]
-margin_left = 48.0
-margin_top = -4.0
-margin_right = 98.0
-margin_bottom = 46.0
-rect_min_size = Vector2( 50, 50 )
+margin_left = 62.0
+margin_top = 2.0
+margin_right = 97.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 32, 32 )
 rect_pivot_offset = Vector2( 30, 30 )
 focus_mode = 0
 mouse_filter = 2
 mouse_default_cursor_shape = 2
-size_flags_horizontal = 7
-size_flags_vertical = 3
+size_flags_horizontal = 0
+size_flags_vertical = 0
 theme = ExtResource( 2 )
 custom_styles/hover = ExtResource( 3 )
 custom_styles/pressed = SubResource( 11 )
@@ -1107,22 +1106,6 @@ custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
 custom_colors/font_color_pressed = Color( 0, 0.556863, 0.360784, 1 )
 toggle_mode = true
 pressed = true
-enabled_focus_mode = 0
-
-[node name="bshadow" type="Button" parent="Settings/CenterContainer/VBoxContainer/Buttons/showMovesBtn/test"]
-visible = false
-show_behind_parent = true
-margin_left = 10.0134
-margin_top = 9.26395
-margin_right = 485.013
-margin_bottom = 49.2639
-rect_min_size = Vector2( 0, 40 )
-focus_mode = 0
-mouse_filter = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-custom_styles/hover = SubResource( 4 )
-custom_styles/normal = SubResource( 5 )
 enabled_focus_mode = 0
 
 [node name="showPoss" type="Button" parent="Settings/CenterContainer/VBoxContainer/Buttons"]
@@ -1155,11 +1138,11 @@ text = "SHOW POSSIBLE MOVES"
 align = 1
 
 [node name="test" type="Button" parent="Settings/CenterContainer/VBoxContainer/Buttons/showPoss"]
-margin_left = 48.0
-margin_top = -4.0
-margin_right = 98.0
-margin_bottom = 46.0
-rect_min_size = Vector2( 50, 50 )
+margin_left = 62.0
+margin_top = 2.0
+margin_right = 97.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 32, 32 )
 rect_pivot_offset = Vector2( 30, 30 )
 focus_mode = 0
 mouse_filter = 2
@@ -1177,22 +1160,6 @@ custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
 custom_colors/font_color_pressed = Color( 0, 0.556863, 0.360784, 1 )
 toggle_mode = true
 pressed = true
-enabled_focus_mode = 0
-
-[node name="bshadow" type="Button" parent="Settings/CenterContainer/VBoxContainer/Buttons/showPoss/test"]
-visible = false
-show_behind_parent = true
-margin_left = 10.0134
-margin_top = 9.26395
-margin_right = 485.013
-margin_bottom = 49.2639
-rect_min_size = Vector2( 0, 40 )
-focus_mode = 0
-mouse_filter = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-custom_styles/hover = SubResource( 4 )
-custom_styles/normal = SubResource( 5 )
 enabled_focus_mode = 0
 
 [node name="playSound" type="Button" parent="Settings/CenterContainer/VBoxContainer/Buttons"]
@@ -1225,11 +1192,11 @@ text = "PLAY MOVE SOUND"
 align = 1
 
 [node name="test" type="Button" parent="Settings/CenterContainer/VBoxContainer/Buttons/playSound"]
-margin_left = 48.0
-margin_top = -4.0
-margin_right = 98.0
-margin_bottom = 46.0
-rect_min_size = Vector2( 50, 50 )
+margin_left = 62.0
+margin_top = 2.0
+margin_right = 97.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 32, 32 )
 rect_pivot_offset = Vector2( 30, 30 )
 focus_mode = 0
 mouse_filter = 2
@@ -1247,22 +1214,6 @@ custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
 custom_colors/font_color_pressed = Color( 0, 0.556863, 0.360784, 1 )
 toggle_mode = true
 pressed = true
-enabled_focus_mode = 0
-
-[node name="bshadow" type="Button" parent="Settings/CenterContainer/VBoxContainer/Buttons/playSound/test"]
-visible = false
-show_behind_parent = true
-margin_left = 10.0134
-margin_top = 9.26395
-margin_right = 485.013
-margin_bottom = 49.2639
-rect_min_size = Vector2( 0, 40 )
-focus_mode = 0
-mouse_filter = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-custom_styles/hover = SubResource( 4 )
-custom_styles/normal = SubResource( 5 )
 enabled_focus_mode = 0
 
 [node name="Back" type="Button" parent="Settings/CenterContainer/VBoxContainer/Buttons"]
@@ -1332,6 +1283,7 @@ custom_styles/normal = SubResource( 6 )
 enabled_focus_mode = 0
 
 [node name="PieceStyle" type="Control" parent="."]
+editor/display_folded = true
 margin_left = -2260.0
 margin_top = -340.0
 margin_right = -1540.0
@@ -1765,7 +1717,8 @@ mouse_filter = 2
 color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
 
 [node name="CenterContainer" type="CenterContainer" parent="overlay/overlay"]
-margin_right = 720.0
+margin_left = 4.31694
+margin_right = 724.317
 margin_bottom = 1280.0
 mouse_filter = 2
 
@@ -1901,6 +1854,7 @@ columns = 8
 [connection signal="pressed" from="Settings/CenterContainer/VBoxContainer/Buttons/Back" to="." method="_on_Back_pressed"]
 [connection signal="visibility_changed" from="PieceStyle/CenterContainer/VBoxContainer/StyleBoard/PreviewBoard" to="PieceStyle/CenterContainer/VBoxContainer/StyleBoard/PreviewBoard" method="_on_PreviewBoard_visibility_changed"]
 [connection signal="pressed" from="PieceStyle/CenterContainer/VBoxContainer/Colors/Previous" to="PieceStyle/CenterContainer/VBoxContainer/Colors" method="_on_Previous_pressed"]
+[connection signal="change_color" from="PieceStyle/CenterContainer/VBoxContainer/Colors/tileColor" to="." method="_on_tileColor_change_color"]
 [connection signal="change_color" from="PieceStyle/CenterContainer/VBoxContainer/Colors/tileColor" to="infoBar2" method="_on_tileColor_change_color"]
 [connection signal="change_color" from="PieceStyle/CenterContainer/VBoxContainer/Colors/tileColor" to="infoBar1" method="_on_tileColor_change_color"]
 [connection signal="pressed" from="PieceStyle/CenterContainer/VBoxContainer/Colors/Next" to="PieceStyle/CenterContainer/VBoxContainer/Colors" method="_on_Next_pressed"]

@@ -7,10 +7,12 @@ var colorIndex
 var letters = ["a","b","c","d","e","f","g","h"]
 var pgn = ""
 var piecesPos
+var isPromoting
 enum {SINGLE_PLAYER, LOCAL, MULTIPLAYER}
 var gamemode = LOCAL
 var piecesPos2
 func _ready():
+	OS.window_maximized = true
 	style = FileConfig.pieceStyle
 	pass 
 	
@@ -52,6 +54,8 @@ func setWhite():
 	"pawn8":Vector2(7,1)
 }
 func setTurn(piece, parent):
+	if isPromoting:
+		return
 	if parent.name == Turn:
 		currentPiece = piece
 		parent.myTurn = true

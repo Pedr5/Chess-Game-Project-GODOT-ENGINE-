@@ -29,6 +29,8 @@ func Start():
 		get_node("Player2").queue_free()
 		yield(get_node("Player2"),"tree_exited")
 		gameStarted = false
+		$infoBar1.clear()
+		$infoBar2.clear()
 	
 	if pBlack:
 		Global.Turn = "Player2"
@@ -291,7 +293,5 @@ func _on_PieceStyles_style_changed():
 		$Player2/TileMap.setColor(p2Color)
 	pass
 
-
-func _on_playSound_toggled(button_pressed):
-	
+func _on_tileColor_change_color():
 	pass

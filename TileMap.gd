@@ -3,13 +3,17 @@ extends TileMap
 func setColor(color):
 	if get_parent().name == "Player" && color == "black":
 		Global.setBlack()
-	var piecesPos = Global.piecesPos
+	var piecesPos
+	if get_parent().name == "Player":
+		piecesPos = Global.piecesPos
+	else:
+		piecesPos = Global.piecesPos2
 	var piece
 	var style = Global.style
 	var node = piecesPos.keys()
-	for i in 16:
-		piece = get_node(node[i])
-		piece.get_node("Button/Icon").texture = load("res://assets/pieces/" + style + "/" + color + "/" + node[i].left(3) + ".png")
+	for i in node:
+		piece = get_node(i)
+		piece.get_node("Button/Icon").texture = load("res://assets/pieces/" + style + "/" + color + "/" + i.left(3) + ".png")
 
 func setPos(pos, color):
 	var piecesPos

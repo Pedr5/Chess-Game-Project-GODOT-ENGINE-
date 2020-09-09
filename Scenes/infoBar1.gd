@@ -31,6 +31,10 @@ func _on_tileColor_change_color(dcolor:Color):
 	$CenterContainer/back.color = dcolor
 	pass
 
+func clear():
+	for i in grid.get_children():
+		grid.remove_child(i)
+		i.queue_free()
 
 func _on_PieceStyles_style_changed():
 	updateTexture()

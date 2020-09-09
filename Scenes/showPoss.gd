@@ -10,12 +10,12 @@ func _ready():
 func _on_showPoss_toggled(button_pressed):
 	$test.pressed = isPress
 	if isPress:
-		$test.rect_position.x = 48
+		$test.rect_position.x = 62
 		table.tile_set_modulate(0,Color("7b000000"))
 		table.tile_set_modulate(1,Color("5eff0000"))
 		isPress = false
 	else:
-		$test.rect_position.x = -8
+		$test.rect_position.x = 4
 		table.tile_set_modulate(0,Color(0))
 		table.tile_set_modulate(1,Color(0))
 		isPress = true

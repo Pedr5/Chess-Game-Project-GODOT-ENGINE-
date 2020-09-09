@@ -40,11 +40,10 @@ script = ExtResource( 7 )
 [node name="tween" type="Tween" parent="ShowMoves"]
 
 [node name="Promotion" type="Node2D" parent="."]
+z_index = 10
 
 [node name="PromotionMenu" parent="Promotion" instance=ExtResource( 8 )]
 visible = false
-margin_left = 298.487
-margin_top = 201.714
-margin_right = 382.487
-margin_bottom = 477.714
-mouse_default_cursor_shape = 2
+margin_left = -10.0
+margin_right = -10.0
+margin_bottom = 10.0
