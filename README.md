@@ -1,5 +1,6 @@
-# Chess-Game-Project-GODOT-ENGINE-
-Um jogo de xadrez para Mobile feito com a Godot Engine que fiz para meu portifólio.
+Um jogo de xadrez feito com a Godot Engine que fiz para meu portifólio.
+
+Plataforma: Android
 
 Funcionalidades:
 
@@ -12,3 +13,4 @@ Pendente:
 - Multiplayer Online.
 - Player vs CPU.
 - Detecção de Stalemate(em otimização).
+- Voltar/Avançar jogadas
