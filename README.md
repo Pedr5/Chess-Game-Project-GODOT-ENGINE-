@@ -3,12 +3,12 @@ Um jogo de xadrez para Mobile feito com a Godot Engine que fiz para meu portifó
 
 Funcionalidades:
 
--Partida Local(mesmo dispositivo).
--Personalização do tabuleiro e das peças.
+- Partida Local(mesmo dispositivo).
+- Personalização do tabuleiro e das peças.
 
 Pendente:
 
--Multiplayer Local (LAN)
--Multiplayer Online.
--Player vs CPU.
--Detecção de Stalemate(em otimização).
+- Multiplayer Local (LAN)
+- Multiplayer Online.
+- Player vs CPU.
+- Detecção de Stalemate(em otimização).
