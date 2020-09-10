@@ -123,27 +123,27 @@ size = 24
 use_filter = true
 font_data = ExtResource( 4 )
 
-[sub_resource type="Theme" id=18]
+[sub_resource type="Theme" id=14]
 
-[sub_resource type="DynamicFont" id=14]
+[sub_resource type="DynamicFont" id=15]
 size = 43
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=15]
+[sub_resource type="DynamicFont" id=16]
 size = 50
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = ExtResource( 17 )
 
-[sub_resource type="DynamicFont" id=16]
+[sub_resource type="DynamicFont" id=17]
 size = 50
 use_filter = true
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=17]
+[sub_resource type="DynamicFont" id=18]
 size = 19
 use_mipmaps = true
 use_filter = true
@@ -1118,7 +1118,7 @@ rect_min_size = Vector2( 100, 40 )
 focus_mode = 0
 size_flags_horizontal = 8
 size_flags_vertical = 0
-theme = SubResource( 18 )
+theme = SubResource( 14 )
 custom_styles/hover = SubResource( 10 )
 custom_styles/pressed = SubResource( 9 )
 custom_styles/normal = SubResource( 10 )
@@ -1317,7 +1317,7 @@ visible = false
 margin_right = 512.0
 margin_bottom = 62.0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 14 )
+custom_fonts/font = SubResource( 15 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 align = 1
 valign = 1
@@ -1671,7 +1671,7 @@ margin_right = 321.0
 margin_bottom = 71.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 16 )
 text = "Checkmate"
 align = 1
 
@@ -1694,7 +1694,7 @@ margin_right = 305.0
 margin_bottom = 71.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 16 )
 text = "Stalemate"
 align = 1
 
@@ -1728,7 +1728,7 @@ margin_left = 245.0
 margin_top = 604.0
 margin_right = 474.0
 margin_bottom = 675.0
-custom_fonts/font = SubResource( 16 )
+custom_fonts/font = SubResource( 17 )
 text = "LOADING"
 
 [node name="infoBar2" type="Node2D" parent="."]
@@ -1774,7 +1774,7 @@ texture = ExtResource( 20 )
 [node name="Name" type="Label" parent="infoBar2/CenterContainer/HBoxContainer"]
 margin_right = 79.0
 margin_bottom = 27.0
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 18 )
 text = "Player 2"
 
 [node name="GridContainer" type="GridContainer" parent="infoBar2/CenterContainer/HBoxContainer"]
@@ -1828,7 +1828,7 @@ texture = ExtResource( 20 )
 [node name="Name" type="Label" parent="infoBar1/CenterContainer/HBoxContainer"]
 margin_right = 76.0
 margin_bottom = 27.0
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 18 )
 text = "Player 1"
 
 [node name="GridContainer" type="GridContainer" parent="infoBar1/CenterContainer/HBoxContainer"]
@@ -1856,12 +1856,12 @@ columns = 8
 [connection signal="visibility_changed" from="PieceStyle/CenterContainer/VBoxContainer/StyleBoard/PreviewBoard" to="PieceStyle/CenterContainer/VBoxContainer/StyleBoard/PreviewBoard" method="_on_PreviewBoard_visibility_changed"]
 [connection signal="pressed" from="PieceStyle/CenterContainer/VBoxContainer/Colors/Previous" to="PieceStyle/CenterContainer/VBoxContainer/Colors" method="_on_Previous_pressed"]
 [connection signal="change_color" from="PieceStyle/CenterContainer/VBoxContainer/Colors/tileColor" to="." method="_on_tileColor_change_color"]
-[connection signal="change_color" from="PieceStyle/CenterContainer/VBoxContainer/Colors/tileColor" to="infoBar1" method="_on_tileColor_change_color"]
 [connection signal="change_color" from="PieceStyle/CenterContainer/VBoxContainer/Colors/tileColor" to="infoBar2" method="_on_tileColor_change_color"]
+[connection signal="change_color" from="PieceStyle/CenterContainer/VBoxContainer/Colors/tileColor" to="infoBar1" method="_on_tileColor_change_color"]
 [connection signal="pressed" from="PieceStyle/CenterContainer/VBoxContainer/Colors/Next" to="PieceStyle/CenterContainer/VBoxContainer/Colors" method="_on_Next_pressed"]
 [connection signal="style_changed" from="PieceStyle/CenterContainer/VBoxContainer/PieceStyles" to="." method="_on_PieceStyles_style_changed"]
-[connection signal="style_changed" from="PieceStyle/CenterContainer/VBoxContainer/PieceStyles" to="infoBar1" method="_on_PieceStyles_style_changed"]
 [connection signal="style_changed" from="PieceStyle/CenterContainer/VBoxContainer/PieceStyles" to="infoBar2" method="_on_PieceStyles_style_changed"]
+[connection signal="style_changed" from="PieceStyle/CenterContainer/VBoxContainer/PieceStyles" to="infoBar1" method="_on_PieceStyles_style_changed"]
 [connection signal="pressed" from="PieceStyle/CenterContainer/VBoxContainer/PieceStyles/Previous" to="PieceStyle/CenterContainer/VBoxContainer/PieceStyles" method="_on_Previous_pressed"]
 [connection signal="pressed" from="PieceStyle/CenterContainer/VBoxContainer/PieceStyles/Next" to="PieceStyle/CenterContainer/VBoxContainer/PieceStyles" method="_on_Next_pressed"]
 [connection signal="pressed" from="PieceStyle/CenterContainer/VBoxContainer/Buttons/Back" to="." method="_on_Back_pressed"]
