@@ -14,3 +14,5 @@ Pendente:
 - Player vs CPU.
 - Detecção de Stalemate(em otimização).
 - Voltar/Avançar jogadas
+
+Release: Arquivo .pck necessário.
